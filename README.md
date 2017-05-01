@@ -17,4 +17,11 @@
 
 * Some pseudocode comments are added to help understand the codes.
 
+* Codes in Python, C++, Swift languages, along with their assembly sources (of the latter two) are also attached as Reference; and the terminal commands to compile those shown as blow:
+
+  ```Bash
+  $ gcc -S -O0 -m32 ../quicksort.cpp
+  $ swiftc -S -O ../quicksort_swift.swift --> quicksort_swift.s
+  ```
+
 * Bugs might exist. Once discovered, do please leave a comment.
