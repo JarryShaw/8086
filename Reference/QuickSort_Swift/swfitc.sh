@@ -1,1 +1,0 @@
-$ swiftc -S -O ../quicksort_swift.swift --> quicksort_swift.s

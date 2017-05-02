@@ -7,8 +7,8 @@ data segment
 
     i   dw  ? 
     j   dw  ?
-    p   dw  ?
-    r   dw  ?
+    p   dw  0                           ;START OF THE ARRAY, EQUALS TO 0.
+    r   dw  49                          ;END OF THE ARRAY, EQUALS TO A.LENGTH - 1.
     q   dw  ?
     x   dw  ?
 
@@ -34,9 +34,7 @@ code segment
         mov  ss, ax
         mov  sp, top
 
-        ;CALL QUICKSORT(A, 0, A.LENGTH).
-        mov  p, 0
-        mov  r, 49
+        ;CALL QUICKSORT(A, 0, A.LENGTH-1).
         call quicksort
 
         ;WAIT FOR ANY KEY.
