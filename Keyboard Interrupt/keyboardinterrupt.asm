@@ -1,6 +1,3 @@
-;All credit to Jarry Shaw (Student ID: 515030910023)
-;The code and other stuffs have been uploaded to my git repo https://github.com/JarryShaw/KeyboardInterrupt
-
 data segment
 
     ;--------------------------------------------
