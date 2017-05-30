@@ -1,39 +1,17 @@
-# Quick Sort in 8086 (Assembly Language)
+# Homework Codes in 8086 (Assembly Language)
 
 
 
-* Capable with emu8086.
+> Capable with emu8086 and IBM-PC Emulator.
+>
+> Functional description can be found in the corresponding folders.
 
-* Quick sort fifty (50, in default) 16-bit signed integers (like XXXXH) ascendingly and in place.
+* `Quick Sort` - **Introduction to 8086**
 
-* Numbers can be changed as user's wish and the amount can be altered also, but the parameters should be therfore modified as following:
+  Quick sort *fifty (50) 16-bit signed integers* `XXXXH` in place and ascendingly.
 
-  ```assembly
-  data segment
 
-      ;-----------------------------------------
-      ;ARRAY OF N INTEGERS.
-      arr dw  ?	;N INTERGERS
-      ;-----------------------------------------
+* `Keyboard Interrupt` - **Microcomputer Interface**
 
-      i   dw  ? 
-      j   dw  ?
-      p   dw  0	;START OF THE ARRAY, EQUALS TO 0.
-      r   dw  N-1	;END OF THE ARRAY, EQUALS TO N-1.
-      q   dw  ?
-      x   dw  ?
-
-  ends
-  ```
-
-* Some pseudocode comments are added to help understand the codes.
-
-* Codes in Python, C++, Swift languages, along with their assembly sources (of the latter two) are also attached as Reference; and the terminal commands to compile those shown as blow:
-
-  ```shell
-  $ gcc -S -O0 -m32 quicksort.cpp -o quicksort_cpp.s
-  $ swiftc -S -Onone quicksort.swift --> quicksort_swift.s
-  ```
-
-* Bugs might exist. Once discovered, do please leave a comment.
+  Overwrites `INT 09H` *(Keyboard Interrupt)* and `INT 08H` *(Timer Interrupt)*.
 
