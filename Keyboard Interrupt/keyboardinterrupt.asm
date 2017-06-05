@@ -275,6 +275,9 @@ code segment
                 pop  ax
                 iret
 
+            ;----------------------------------------
+            ;RESPONDING PRESS OF ESC - EXIT THE PROGRAM.
+            
             exit_esc:
                 mov  ax, 1
                 mov  ef, ax
