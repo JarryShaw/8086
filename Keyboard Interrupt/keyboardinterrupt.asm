@@ -7,7 +7,7 @@ data segment
 
     ctr dw 0   ;TIME COUNTER.
     sf  dw 0   ;STATE FLAG - 1 FOR ENABLED, 0 FOR DISABLED.
-    ef  dw 0   ;EXIT FLAG - 1 FOR EXIT THE PROGRAM, 0 FOR KEEP RUNING.
+    ef  dw 0   ;EXIT FLAG - 1 FOR EXIT THE PROGRAM, 0 FOR KEEP RUNNING.
 
 data ends
 
