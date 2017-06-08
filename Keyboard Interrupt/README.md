@@ -26,7 +26,7 @@
 
   * Repeat the steps above.
 
-  * Plus, terminate program but stay resident, i.e. `INT 27H`.
+  * Plus, terminate program but stay resident, i.e. `INT 27H`, when key `ESC` is pressed.
 
 * Bugs might exist. Once discovered, do please leave a comment.
 

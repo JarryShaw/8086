@@ -7,7 +7,7 @@ data segment
 
     ctr dw 0   ;TIME COUNTER.
     sf  dw 0   ;STATE FLAG - 1 FOR ENABLED, 0 FOR DISABLED.
-    ef  dw 0   ;EXIT FLAG - 1 FOR EXIT THE PROGRAM.
+    ef  dw 0   ;EXIT FLAG - 1 FOR EXIT THE PROGRAM, 0 FOR KEEP RUNING.
 
 data ends
 
@@ -236,14 +236,14 @@ code segment
             out  61h, al
             pop  ax
 
-            ;ESC PRESSED - EXIT THE PROGRAM.
-            cmp  al, 01h
-            je   exit_esc
-
             ;CHECK STATE.
             mov  bx, sf
             cmp  bx, 0
             je   nohit
+
+            ;ESC PRESSED - EXIT THE PROGRAM.
+            cmp  al, 01h
+            je   exit_esc
 
             ;CHECK INPUT.
             compare:
