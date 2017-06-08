@@ -62,10 +62,14 @@ code segment
 
         loop_cli:
 
+            mov  ax, ef
+            cmp  ax, 1
+            je   exit
+
             mov  ax, 600
             mov  bx, ctr
             cmp  bx, ax
-            ja   enable     ;IF COUNTER TRIGGERED.
+            ja   enable     ;IF COUNTER TRIGGERED SWITCH.
 
             jmp  loop_cli
 
@@ -101,7 +105,9 @@ code segment
 
         exit:
 
-            mov  dx, offset start
+            mov  dx, offset eop
+            inc  dx                 ;DX = OFFSET OF EOP + 1.
+        eop:
             int  27h                ;INT 27H - TERMINATE BUT STAY RESIDENT.
 
         ;----------------------------------------
@@ -231,7 +237,7 @@ code segment
             pop  ax
 
             ;ESC PRESSED - EXIT THE PROGRAM.
-            cmp  al, 1
+            cmp  al, 01h
             je   exit_esc
 
             ;CHECK STATE.
@@ -239,11 +245,13 @@ code segment
             cmp  bx, 0
             je   nohit
 
+            ;CHECK INPUT.
             compare:
                 mov  bx, seg key
                 mov  ds, bx
                 mov  bx, 0
 
+            ;CHECK PROCESS.
             proc_cmp:
                 mov  dl, [bx]
                 cmp  al, dl
@@ -253,6 +261,7 @@ code segment
                 je   nohit      ;NONE HIT.
                 jmp  proc_cmp
 
+            ;INPUT IN A~Z & IS Z.
             hit:
                 mov  dl, bl
                 inc  dl
@@ -260,11 +269,13 @@ code segment
                 jne  not_z
                 mov  dx, 0
 
+            ;INPUT IS NOT Z.
             not_z:
                 add  dx, 61h
                 mov  ah, 2
                 int  21h        ;INT 21H, AH=02H - DISPLAY OUTPUT.
 
+            ;INPUT NOT A~Z.
             nohit:
                 cli
                 mov  al, 20h
@@ -275,9 +286,7 @@ code segment
                 pop  ax
                 iret
 
-            ;----------------------------------------
             ;RESPONDING PRESS OF ESC - EXIT THE PROGRAM.
-            
             exit_esc:
                 mov  ax, 1
                 mov  ef, ax
