@@ -1,15 +1,20 @@
 //
-//  quicksort.cpp
-//  QuickSort_C++
+//  quicksort.mm
+//  QuickSort_Objective-C++
 //
-//  Created by Jarry Shaw on 5/1/17.
+//  Created by Jarry Shaw on 11/26/2017.
 //  Copyright © 2017 Jarry Shaw. All rights reserved.
 //
 
-#include <iostream>
+#import <Foundation/Foundation.h>
 
-void quickSort(int * A, int p, int r);
-int  partition(int * A, int p, int r);
+@interface Partition: NSObject
+- (int) partition: (int*) A p: (int) p r: (int) r;
+@end
+
+@interface QuickSort: NSObject
+- (void) quickSort: (int*) A p: (int) p r: (int) r;
+@end
 
 int main(int argc, const char * argv[]) {
     int A[50] = { 24,  23,  22,  21,  20,\
@@ -23,25 +28,32 @@ int main(int argc, const char * argv[]) {
                  -16, -17, -18, -19, -20,\
                  -21, -22, -23, -24, -25 };
 
-    quickSort(A, 0, 49);
+    QuickSort * quicksort = [[QuickSort alloc] init];
+    [quicksort quickSort: A p: 0 r: 49];
 
-    for (int ctr=0; ctr<50; ctr++)    {
+    for (int ctr=0; ctr<50; ctr++)  {
         printf("%x\t", A[ctr]);
     }
 
-    std::cout << std::endl;
+    printf("\n");
     return 0;
 }
 
-void quickSort(int * A, int p, int r)    {
+@implementation QuickSort
+- (void) quickSort: (int*) A p: (int) p r: (int) r  {
     if (p < r)  {
-        int q = partition(A, p, r);
-        quickSort(A, p, q-1);
-        quickSort(A, q+1, r);
+        QuickSort * quicksort = [[QuickSort alloc] init];
+        Partition * partition = [[Partition alloc] init];
+
+        int q = [partition partition: A p: p r: r];
+        [quicksort quickSort: A p: p r: q-1];
+        [quicksort quickSort: A p: q+1 r: r];
     }
 }
+@end
 
-int partition(int * A, int p, int r)    {
+@implementation Partition
+- (int) partition: (int*) A p: (int) p r: (int) r   {
     int x = A[r];
     int i = p - 1;
 
@@ -61,3 +73,4 @@ int partition(int * A, int p, int r)    {
 
     return (i+1);
 }
+@end

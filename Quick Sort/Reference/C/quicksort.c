@@ -1,12 +1,12 @@
 //
-//  quicksort.cpp
-//  QuickSort_C++
+//  quicksort.c
+//  QuickSort_C
 //
-//  Created by Jarry Shaw on 5/1/17.
+//  Created by Jarry Shaw on 11/26/2017.
 //  Copyright © 2017 Jarry Shaw. All rights reserved.
 //
 
-#include <iostream>
+#include <stdio.h>
 
 void quickSort(int * A, int p, int r);
 int  partition(int * A, int p, int r);
@@ -29,7 +29,7 @@ int main(int argc, const char * argv[]) {
         printf("%x\t", A[ctr]);
     }
 
-    std::cout << std::endl;
+    printf("\n");
     return 0;
 }
 

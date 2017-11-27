@@ -1,3 +1,11 @@
+#
+#  quicksort.py
+#  QuickSort_Python
+#
+#  Created by Jarry Shaw on 5/1/17.
+#  Copyright © 2017 Jarry Shaw. All rights reserved.
+#
+
 def quicksort(A, p, r):
     if p < r:
         # print '\ncall partition'
