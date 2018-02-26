@@ -4,19 +4,19 @@
 
 * Capable with emu8086.
 
-* Quick sort fifty (50, in default) 16-bit signed integers (like `XXXXH`) ascendingly and in place.
+* Quick sort fifty (50, in default) 16-bit signed integers (like `XXXXH`) in ascending order and in place.
 
-* Numbers can be changed as user's wish and the amount can be altered also, but the parameters should be therfore modified as following:
+* Numbers can be changed as user's wish and the amount can be altered also, but the parameters should be therefore modified as following:
 
   ```assembly
   data segment
 
       ;-----------------------------------------
       ;ARRAY OF N INTEGERS.
-      arr dw  ?	;N INTERGERS
+      arr dw  ?	;N INTEGERS
       ;-----------------------------------------
 
-      i   dw  ? 
+      i   dw  ?
       j   dw  ?
       p   dw  0	;START OF THE ARRAY, EQUALS TO 0.
       r   dw  N-1	;END OF THE ARRAY, EQUALS TO N-1.
@@ -36,4 +36,3 @@
   ```
 
 * Bugs might exist. Once discovered, do please leave a comment.
-

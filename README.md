@@ -8,10 +8,9 @@
 
 * `Quick Sort` - **Introduction to 8086**
 
-  Quick sort *fifty (50) 16-bit signed integers* `XXXXH` in place and ascendingly.
+  Quick sort *fifty (50) 16-bit signed integers* `XXXXH` in place and in ascending order.
 
 
 * `Keyboard Interrupt` - **Microcomputer Interface**
 
   Overwrites `INT 09H` *(Keyboard Interrupt)* and `INT 08H` *(Timer Interrupt)*.
-
